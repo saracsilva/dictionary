@@ -5,16 +5,29 @@ import svgBackground from "./assets/background_shape.svg";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Routes, Route } from "react-router-dom";
-import ErrorPage from "./components/ErrorPage";
+import ErrorPage from "./pages/ErrorPage";
+import SearchWord from "./components/SearchWord";
+import { useNavigate } from "react-router-dom";
+import Sorry from "./pages/Sorry";
 
 function App() {
+  const navigate = useNavigate();
   const [search, setSearch] = useState("");
+  const [data, setData] = useState({});
   const fetchData = async () => {
-    const response = await axios.get(
-      `https://api.dictionaryapi.dev/api/v2/entries/en/${search}`
-    );
-    const data = await response.data[0];
-    console.log(data);
+    try {
+      const response = await axios.get(
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${search}`
+      );
+      const value = await response.data[0];
+      setData(value);
+
+      if (data) {
+        navigate(`/${search}`);
+      }
+    } catch (error) {
+      navigate(`/sorry`);
+    }
   };
   useEffect(() => {
     if (search.length > 0) {
@@ -35,6 +48,8 @@ function App() {
             />
           }
         />
+        <Route path="/:searchWord" element={<SearchWord data={data} />} />
+        <Route path="/sorry" element={<Sorry />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <img
