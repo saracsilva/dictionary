@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import play from "../assets/play_icon.svg";
 
-function Search() {
+function Search({ setSearch }) {
+  const [keyWord, setKeyWord] = useState("");
+  const handleSearch = (event) => {
+    event.preventDefault();
+    setSearch(keyWord);
+    console.log(keyWord);
+  };
+  const handleQuery = (event) => {
+    setKeyWord(event.target.value);
+  };
   return (
     <>
       <div className="grid grid-cols-5  justify-items-center items-center">
@@ -12,10 +21,14 @@ function Search() {
         </div>
       </div>
       <div className="flex  w-1/4 self-center justify-center ">
-        <form className="relative flex align-center border border-dark-blue rounded-full ">
+        <form
+          className="relative flex align-center border border-dark-blue rounded-full "
+          onSubmit={handleSearch}
+        >
           <input
             type="search"
             placeholder="Search"
+            onChange={handleQuery}
             className=" block pl-7 pr-12 bg-medium-grey/0 w-full "
           ></input>{" "}
           <div className="absolute inset-y-0 right-0 flex items-center pr-5">
