@@ -1,9 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <div className="p-5 ">
-      my<span className="font-black">Dictionary</span>
+      <Link to="/">
+        my<span className="font-black">Dictionary</span>
+      </Link>
     </div>
   );
 }

@@ -4,6 +4,8 @@ import Search from "./components/Search";
 import svgBackground from "./assets/background_shape.svg";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Routes, Route } from "react-router-dom";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -22,8 +24,19 @@ function App() {
   return (
     <div className="app flex flex-col  content-center  ">
       <Header />
-      <Search className="w-5/6 mx-auto" search={search} setSearch={setSearch} />
-
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Search
+              className="w-5/6 mx-auto"
+              search={search}
+              setSearch={setSearch}
+            />
+          }
+        />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
       <img
         src={svgBackground}
         alt="background"
