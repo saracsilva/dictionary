@@ -2,13 +2,23 @@ import "./App.css";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import svgBackground from "./assets/background_shape.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function App() {
   const [search, setSearch] = useState("");
-  if (search.length > 0) {
-    console.log("test", search);
-  }
+  const fetchData = async () => {
+    const response = await axios.get(
+      `https://api.dictionaryapi.dev/api/v2/entries/en/${search}`
+    );
+    const data = await response.data[0];
+    console.log(data);
+  };
+  useEffect(() => {
+    if (search.length > 0) {
+      fetchData();
+    }
+  }, [search]);
   return (
     <div className="app flex flex-col  content-center  ">
       <Header />
