@@ -11,14 +11,16 @@ function Search() {
           <p> /sɜːt͡ʃ/</p>
         </div>
       </div>
-      <div className="flex justify-center">
-        <form>
+      <div className="flex  w-1/4 self-center justify-center ">
+        <form className="relative flex align-center border border-dark-blue rounded-full ">
           <input
             type="search"
             placeholder="Search"
-            className="focus:ring-indigo-500 "
-          ></input>
-          <input type="submit"></input>
+            className=" block pl-7 pr-12 bg-medium-grey/0 w-full "
+          ></input>{" "}
+          <div className="absolute inset-y-0 right-0 flex items-center pr-5">
+            <input type="submit"></input>
+          </div>
         </form>
       </div>
     </>
