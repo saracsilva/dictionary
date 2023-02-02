@@ -13,25 +13,10 @@ import Sorry from "./pages/Sorry";
 function App() {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
-  const [data, setData] = useState({});
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        `https://api.dictionaryapi.dev/api/v2/entries/en/${search}`
-      );
-      const value = await response.data[0];
-      setData(value);
-
-      if (data) {
-        navigate(`/${search}`);
-      }
-    } catch (error) {
-      navigate(`/sorry`);
-    }
-  };
   useEffect(() => {
     if (search.length > 0) {
-      fetchData();
+      navigate(`/${search}`);
+      setSearch("");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
@@ -49,7 +34,10 @@ function App() {
             />
           }
         />
-        <Route path="/:searchWord" element={<SearchWord data={data} />} />
+        <Route
+          path="/:searchWord"
+          element={<SearchWord search={search} setSearch={setSearch} />}
+        />
         <Route path="/sorry" element={<Sorry search={search} />} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>

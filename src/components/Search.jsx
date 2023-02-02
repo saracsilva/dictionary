@@ -10,7 +10,6 @@ function Search({ setSearch }) {
   const handleSearch = (event) => {
     event.preventDefault();
     setSearch(keyWord);
-    console.log(keyWord);
   };
   const handleQuery = (event) => {
     setKeyWord(event.target.value);
