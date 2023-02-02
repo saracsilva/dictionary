@@ -33,6 +33,7 @@ function App() {
     if (search.length > 0) {
       fetchData();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
   return (
     <div className="app flex flex-col  content-center  ">
@@ -49,8 +50,8 @@ function App() {
           }
         />
         <Route path="/:searchWord" element={<SearchWord data={data} />} />
-        <Route path="/sorry" element={<Sorry />} />
-        <Route path="*" element={<ErrorPage />} />
+        <Route path="/sorry" element={<Sorry search={search} />} />
+        <Route path="/*" element={<ErrorPage />} />
       </Routes>
       <img
         src={svgBackground}
