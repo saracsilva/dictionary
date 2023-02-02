@@ -1,6 +1,7 @@
 import React from "react";
 
 import Phonetic from "./Phonetic";
+import Title from "./Title";
 
 function SearchWord({ data }) {
   /* const parsedPhonetic = () => {
@@ -23,12 +24,16 @@ function SearchWord({ data }) {
   return (
     <>
       <div className="grid grid-cols-5  justify-items-center items-center">
-        <div className="col-start-2 text-9xl col-span-2">{data.word}</div>
-        {data.phonetics.map((phonetic, index) => {
-          return (
-            <Phonetic key={index} audio={phonetic.audio} text={phonetic.text} />
-          );
-        })}
+        <Title title={data.word} />
+        <div className="col-start-4 ">
+          {data.phonetics.map((phonetic, index) => {
+            return (
+              <div className=" p-3 " key={index}>
+                <Phonetic audio={phonetic.audio} text={phonetic.text} />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </>
   );
