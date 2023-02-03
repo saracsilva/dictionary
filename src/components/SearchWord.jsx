@@ -27,10 +27,12 @@ function SearchWord({ setSearch }) {
         navigate(`/${search}`);
       } */
       } catch (error) {
-        navigate(`/sorry`);
+        navigate(`/sorry`, { state: { search: searchWord } });
       }
     };
-    fetchData();
+    setTimeout(() => {
+      fetchData();
+    }, 1500);
   }, []);
 
   return (
@@ -50,10 +52,11 @@ function SearchWord({ setSearch }) {
         </div>
       )}
       {isLoading && (
-        <div className="grid grid-cols-3  justify-items-center items-center">
+        <div /* className="grid grid-cols-3  justify-items-center items-center" */
+        >
           <svg
             aria-hidden="true"
-            className=" col-start-2  w-4/5 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-dark-blue"
+            className=" text-center  w-4/5 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-dark-blue"
             viewBox="0 0 100 101"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

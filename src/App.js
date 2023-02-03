@@ -38,7 +38,7 @@ function App() {
           path="/:searchWord"
           element={<SearchWord search={search} setSearch={setSearch} />}
         />
-        <Route path="/sorry" element={<Sorry search={search} />} />
+        <Route path="/sorry" element={<Sorry />} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
       <img
