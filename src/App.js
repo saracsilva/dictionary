@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Search from "./components/Search";
 import svgBackground from "./assets/background_shape.svg";
 import { useEffect, useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage";
 import SearchWord from "./components/SearchWord";
 import { useNavigate } from "react-router-dom";
@@ -24,16 +24,18 @@ function App() {
       <Header />{" "}
       <div className="flex flex-col  z-10 content-center items-center ">
         <Routes>
-          <Route
-            path="/search"
-            element={
-              <Search
-                className=" mx-auto "
-                search={search}
-                setSearch={setSearch}
-              />
-            }
-          />
+          <Route path="/" element={<Navigate to="/search" />}>
+            <Route
+              path="/search"
+              element={
+                <Search
+                  className=" mx-auto "
+                  search={search}
+                  setSearch={setSearch}
+                />
+              }
+            />
+          </Route>
           <Route path="/:searchWord" element={<SearchWord />} />
           <Route path="/sorry" element={<Sorry setSearch={setSearch} />} />
           <Route path="/*" element={<ErrorPage />} />
