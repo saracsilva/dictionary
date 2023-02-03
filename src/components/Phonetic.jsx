@@ -10,7 +10,7 @@ function Phonetic({ audio, text }) {
   };
   if (text) {
     return (
-      <div className="col-start-4 flex align-center text-base md:text-xl py-3 px-4 md:px-10 border border-solid border-dark-blue rounded-full gap-5">
+      <div className="col-start-4 flex align-center text-base md:text-xl py-3  px-4 md:px-16 border border-solid border-dark-blue rounded-full gap-5">
         {audio && (
           <>
             <div className="flex align-center ">

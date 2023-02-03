@@ -8,10 +8,10 @@ function Sorry() {
   const { state } = useLocation();
   const { search } = state;
   // reference
-  console.log("testsorry", search);
+
   return (
-    <>
-      <div className="grid grid-cols-5  justify-items-center items-center">
+    <div className=" flex flex-col gap-6 items-center">
+      <div className="flex flex-col md:flex-row gap-6  md:gap-36 items-center">
         <Title title="Sorry" />
 
         <Phonetic
@@ -20,7 +20,7 @@ function Sorry() {
         />
       </div>
       <p>No results for "{search}"</p>
-    </>
+    </div>
   );
 }
 

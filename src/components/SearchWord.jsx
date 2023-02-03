@@ -32,31 +32,32 @@ function SearchWord({ setSearch }) {
     };
     setTimeout(() => {
       fetchData();
-    }, 1500);
+    }, 5500);
   }, []);
 
   return (
     <>
       {!isLoading && (
-        <div className="grid grid-cols-5  justify-items-center items-center">
-          <Title title={data.word} />
-          <div className="col-start-4 ">
-            {data.phonetics.map((phonetic, index) => {
-              return (
-                <div className=" p-3 " key={index}>
-                  <Phonetic audio={phonetic.audio} text={phonetic.text} />
-                </div>
-              );
-            })}
+        <div className=" flex flex-col gap-6 items-center">
+          <div className="flex flex-col md:flex-row gap-6  md:gap-36 items-center">
+            <Title title={data.word} />
+            <div className=" ">
+              {data.phonetics.map((phonetic, index) => {
+                return (
+                  <div className=" p-3 " key={index}>
+                    <Phonetic audio={phonetic.audio} text={phonetic.text} />
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       )}
       {isLoading && (
-        <div /* className="grid grid-cols-3  justify-items-center items-center" */
-        >
+        <div className="flex flex-col  gap-6 pt-20  items-center">
           <svg
             aria-hidden="true"
-            className=" text-center  w-4/5 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-dark-blue"
+            className=" text-center col-start-2  w-[5%]  mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-dark-blue"
             viewBox="0 0 100 101"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +71,7 @@ function SearchWord({ setSearch }) {
               fill="currentFill"
             />
           </svg>
-          <span className="sr-only">Loading...</span>
+          <span className=" text-6xl font-black">Loading...</span>
         </div>
       )}
     </>

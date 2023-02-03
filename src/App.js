@@ -25,7 +25,7 @@ function App() {
       <Header />
       <Routes>
         <Route
-          path="/"
+          path="/search"
           element={
             <Search
               className="w-5/6 mx-auto"
@@ -44,7 +44,7 @@ function App() {
       <img
         src={svgBackground}
         alt="background"
-        className="blur-3xl  opacity-50 -z-1   w-1/5 "
+        className="absolute right-[25%] top-[25%] blur-3xl  opacity-25 -z-1   w-1/5 "
       />
     </div>
   );
