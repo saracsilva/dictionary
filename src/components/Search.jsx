@@ -26,7 +26,7 @@ function Search({ setSearch }) {
           text="/sɜːt͡ʃ/"
         />
       </div>
-      <div className="flex flex-col w-2/3 md:w-2/5 self-center justify-center ">
+      <div className="flex flex-col w-4/5 self-center justify-center ">
         <p className=" font-roboto">
           <strong>1.</strong> An attempt to find something.
         </p>

@@ -5,7 +5,7 @@ import Phonetic from "./Phonetic";
 import Title from "./Title";
 import { useNavigate, useParams } from "react-router-dom";
 
-function SearchWord({ setSearch }) {
+function SearchWord() {
   const navigate = useNavigate();
   const [data, setData] = useState({});
   const [isLoading, setIsloading] = useState(true);
@@ -32,7 +32,7 @@ function SearchWord({ setSearch }) {
     };
     setTimeout(() => {
       fetchData();
-    }, 5500);
+    }, 1500);
   }, []);
 
   return (
@@ -54,7 +54,7 @@ function SearchWord({ setSearch }) {
         </div>
       )}
       {isLoading && (
-        <div className="flex flex-col  gap-6 pt-20  items-center">
+        <div className="flex flex-col w-4/5  gap-6 pt-20  items-center">
           <svg
             aria-hidden="true"
             className=" text-center col-start-2  w-[5%]  mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-dark-blue"
