@@ -3,7 +3,6 @@ import Header from "./components/Header";
 import Search from "./components/Search";
 import svgBackground from "./assets/background_shape.svg";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { Routes, Route, Link } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage";
 import SearchWord from "./components/SearchWord";
