@@ -4,6 +4,9 @@ import axios from "axios";
 import Phonetic from "./Phonetic";
 import Title from "./Title";
 import { useNavigate, useParams } from "react-router-dom";
+import Noun from "./Noun";
+import Verb from "./Verb";
+import ProperNoun from "./ProperNoun";
 
 function SearchWord() {
   const navigate = useNavigate();
@@ -38,10 +41,10 @@ function SearchWord() {
   return (
     <>
       {!isLoading && (
-        <div className=" flex flex-col gap-6 items-center">
+        <div className=" flex flex-col  items-center h-full ">
           <div className="flex flex-col md:flex-row gap-6  md:gap-36 items-center">
             <Title title={data.word} />
-            <div className=" ">
+            <div>
               {data.phonetics.map((phonetic, index) => {
                 return (
                   <div className=" p-3 " key={index}>
@@ -51,6 +54,9 @@ function SearchWord() {
               })}
             </div>
           </div>
+          {data.meanings[0] && <Noun noun={data.meanings[0]} />}
+          {data.meanings[1] && <Verb verb={data.meanings[1]} />}
+          {data.meanings[2] && <ProperNoun properNoun={data.meanings[2]} />}
         </div>
       )}
       {isLoading && (
