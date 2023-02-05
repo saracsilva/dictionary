@@ -39,7 +39,8 @@ function Search({ setSearch }) {
             onSubmit={handleSearch}
           >
             <input
-              type="search"
+              type="text"
+              id="simple-search"
               placeholder="Search"
               onChange={handleQuery}
               className=" block pl-7 pr-12 bg-medium-grey/0 w-full focus:rounded-full "
