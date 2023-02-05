@@ -20,16 +20,16 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
   return (
-    <div className="app flex flex-col content-center   ">
+    <div className="app w-screen  flex flex-col content-center   ">
       <Header />{" "}
-      <div className="flex flex-col  z-10 content-center items-center ">
+      <div className="w-screen h-screen flex flex-col  z-10 content-center items-center ">
         <Routes>
           <Route path="/" element={<Navigate replace to="/search" />} />
           <Route
             path="search"
             element={
               <Search
-                className=" mx-auto "
+                className="w-screen mx-auto "
                 search={search}
                 setSearch={setSearch}
               />
@@ -63,7 +63,7 @@ function App() {
       <img
         src={svgBackground}
         alt="background"
-        className="absolute right-[25%] top-[25%] blur-3xl  opacity-[40%] -z-1   w-1/5   "
+        className="absolute md:right-[25%] top-[25%] blur-3xl  opacity-[40%] -z-1   md:w-1/5   "
       />
       {/* left-[50%] text-center translate-x-50 */}
     </div>
