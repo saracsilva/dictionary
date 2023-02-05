@@ -4,9 +4,7 @@ import axios from "axios";
 import Phonetic from "./Phonetic";
 import Title from "./Title";
 import { useNavigate, useParams } from "react-router-dom";
-import Noun from "./Noun";
-import Verb from "./Verb";
-import ProperNoun from "./ProperNoun";
+
 import Info from "./Info";
 
 function SearchWord() {
