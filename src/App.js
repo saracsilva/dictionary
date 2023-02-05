@@ -39,7 +39,7 @@ function App() {
           <Route path="/sorry" element={<Sorry setSearch={setSearch} />} />
           <Route path="/*" element={<ErrorPage />} />
         </Routes>
-        <div className="absolute bottom-2 ">
+        <div className="bottom-2  fixed">
           <Link
             to="https://github.com/saracsilva/dictionary"
             target="_blank"

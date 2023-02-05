@@ -7,6 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Noun from "./Noun";
 import Verb from "./Verb";
 import ProperNoun from "./ProperNoun";
+import Info from "./Info";
 
 function SearchWord() {
   const navigate = useNavigate();
@@ -52,9 +53,11 @@ function SearchWord() {
               })}
             </div>
           </div>
-          {data.meanings[0] && <Noun noun={data.meanings[0]} />}
-          {data.meanings[1] && <Verb verb={data.meanings[1]} />}
-          {data.meanings[2] && <ProperNoun properNoun={data.meanings[2]} />}
+          {data.meanings.map((meaning, index) => {
+            {
+              return <Info key={index} data={meaning} />;
+            }
+          })}
         </div>
       )}
       {isLoading && (
