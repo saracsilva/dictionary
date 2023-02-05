@@ -52,9 +52,11 @@ function SearchWord() {
             </div>
           </div>
           {data.meanings.map((meaning, index) => {
-            {
-              return <Info key={index} data={meaning} />;
-            }
+            return (
+              <div key={index}>
+                <Info data={meaning} />
+              </div>
+            );
           })}
         </div>
       )}
