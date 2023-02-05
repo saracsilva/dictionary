@@ -36,8 +36,10 @@ module.exports = {
       xl: ["24px"],
       "4xl": ["36px"],
       "6xl": ["60px"],
+      "7xl": ["100px"],
+      "8xl": ["150px"],
       "9xl": [
-        "15rem",
+        "15em",
         {
           fontWeight: "700",
         },
