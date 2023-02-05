@@ -13,9 +13,7 @@ function SearchWord() {
   const [data, setData] = useState({});
   const [isLoading, setIsloading] = useState(true);
   const { searchWord } = useParams();
-  console.log(searchWord);
 
-  console.log("test", data);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -35,7 +33,7 @@ function SearchWord() {
     };
     setTimeout(() => {
       fetchData();
-    }, 1500); // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, 500); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

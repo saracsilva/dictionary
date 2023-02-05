@@ -7,6 +7,17 @@ function ProperNoun({ properNoun }) {
         {properNoun.partOfSpeech.charAt(0).toUpperCase() +
           properNoun.partOfSpeech.slice(1)}
       </div>
+      <div className="md:col-span-5 flex flex-col pt-8 md:pl-8 items-center md:items-start ">
+        <ul>
+          <p className=" text-xl pb-4">Definitions:</p>
+          {properNoun.definitions.map((definition, index) => (
+            <li key={index} className="flex pb-3">
+              <strong className=" font-roboto">{index + 1}. </strong>
+              <p className=" font-roboto"> {definition.definition}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
