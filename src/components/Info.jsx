@@ -22,14 +22,24 @@ function Info({ data }) {
               )}
             </div>
           ))}
-          {data.synonyms && (
+          {data.synonyms.length > 0 && (
             <>
               <p className=" text-xl pb-4">Synonyms</p>{" "}
-              {data.synonyms.map((value, index) => (
-                <span key={index} className="font-roboto">
-                  <em>{value}, </em>
-                </span>
-              ))}
+              {data.synonyms.map((value, index, array) => {
+                if (index + 1 === array.length) {
+                  return (
+                    <span key={index} className="font-roboto">
+                      <em>{value} </em>
+                    </span>
+                  );
+                } else {
+                  return (
+                    <span key={index} className="font-roboto">
+                      <em>{value}, </em>
+                    </span>
+                  );
+                }
+              })}
             </>
           )}
         </ul>
