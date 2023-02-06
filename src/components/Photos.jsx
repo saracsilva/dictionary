@@ -40,14 +40,14 @@ function Photos() {
           <div className="text-xl  font-black flex  justify-center md:justify-end md:justify-self-end  py-3  border-b-[1px] text-center md:col-span-2 bg-none md:border-r-[1px] md:border-b-0  md:pr-8 md:pt-8 border-solid border-dark-blue">
             Pictures
           </div>
-          <div className="flex">
+          <div className="flex flex-col md:flex-row">
             {photos.map((photo, index) => {
               return (
                 <img
                   key={index}
                   src={photo.src.original}
                   alt={searchWord}
-                  className=" w-36 h-[500px] object-cover"
+                  className="w-full h-40 md:w-36 md:h-[500px] object-cover"
                 />
               );
             })}
