@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "./Loading";
+/* import { motion } from "framer-motion"; */
 import { useParams } from "react-router-dom";
 const pexelsApiKey = process.env.REACT_APP_API_KEY;
 
@@ -40,15 +41,24 @@ function Photos() {
           <div className="text-xl  font-black flex  justify-center md:justify-end md:justify-self-end  py-3  border-b-[1px] text-center md:col-span-2 bg-none md:border-r-[1px] md:border-b-0  md:pr-8 md:pt-8 border-solid border-dark-blue">
             Pictures
           </div>
-          <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col md:flex-row md:col-span-3 object-cover h-full ">
             {photos.map((photo, index) => {
               return (
-                <img
+                /*  <motion.div
+                  whileHover={{ scaleX: 1.2 }}
+                  style={{ originX: 0, scale: 1 }}
                   key={index}
-                  src={photo.src.original}
-                  alt={searchWord}
-                  className="w-full h-40 md:w-36 md:h-[500px] object-cover"
-                />
+                  className="w-full md:w-36 h-40 md:h-full  md:grid-flow-row object-scale-down "
+                > */
+                <div className="w-full md:w-36 h-40 md:h-full  md:grid-flow-row object-scale-down ">
+                  <img
+                    src={photo.src.original}
+                    alt={searchWord}
+                    className="object-cover hover:object-cover h-[500px]"
+                  />
+                </div>
+
+                /*  </motion.div> */
               );
             })}
           </div>

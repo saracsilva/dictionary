@@ -3,7 +3,7 @@ import Phonetic from "./Phonetic";
 
 function Title({ title, audio, text }) {
   return (
-    <div className="flex">
+    <div className="flex pb-4">
       {title.length > 10 && (
         <div className="text-4xl font-black sm:text-6xl  md:text-7xl md: col-span-2">
           {title}
