@@ -63,7 +63,7 @@ function App() {
       <img
         src={svgBackground}
         alt="background"
-        className="absolute right-[5%] md:right-[25%] top-[25%] blur-3xl  opacity-[40%] -z-1   md:w-1/5   "
+        className="absolute right-[5%] md:right-[25%] top-[25%] blur-3xl  opacity-[50%] -z-1   md:w-1/5   "
       />
     </div>
   );
