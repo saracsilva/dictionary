@@ -70,7 +70,7 @@ function SearchWord() {
           </div>
           {data.meanings.map((meaning, index) => {
             return (
-              <div className=" py-6" key={index}>
+              <div className=" " key={index}>
                 <Info data={meaning} />
               </div>
             );
