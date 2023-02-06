@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "./Loading";
+import { useParams } from "react-router-dom";
 const pexelsApiKey = process.env.REACT_APP_API_KEY;
 
-function Photos({ word }) {
+function Photos() {
   const [isLoading, setIsloading] = useState(true);
   const [photos, setPhotos] = useState(null);
+  const { searchWord } = useParams();
   useEffect(() => {
     const fetchPhoto = async () => {
       try {
@@ -13,7 +15,7 @@ function Photos({ word }) {
           Authorization: `Bearer ${pexelsApiKey}`,
         };
         const response = await axios.get(
-          `https://api.pexels.com/v1/search?query=${word}&per_page=6`,
+          `https://api.pexels.com/v1/search?query=${searchWord}&per_page=6`,
           { headers }
         );
         const value = await response;
@@ -43,7 +45,7 @@ function Photos({ word }) {
                 <img
                   key={index}
                   src={photo.src.original}
-                  alt={word}
+                  alt={searchWord}
                   className=" w-36 h-[500px] object-cover"
                 />
               );
