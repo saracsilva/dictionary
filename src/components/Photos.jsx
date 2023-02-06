@@ -8,6 +8,7 @@ function Photos() {
   const [isLoading, setIsloading] = useState(true);
   const [photos, setPhotos] = useState(null);
   const { searchWord } = useParams();
+  console.log(searchWord);
   useEffect(() => {
     const fetchPhoto = async () => {
       try {
@@ -29,17 +30,17 @@ function Photos() {
     setTimeout(() => {
       fetchPhoto();
     }, 100); // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [searchWord]);
 
   return (
     <>
       {" "}
       {!isLoading && (
         <div className=" flex flex-col   md:grid  md:grid-cols-7  h-[500px] w-screen border-t-[1px] border-solid border-dark-blue">
-          <div className="text-xl  font-black flex w-screen justify-center md:justify-end md:justify-self-end  py-3  border-b-[1px] text-center md:col-span-2 bg-none md:border-r-[1px] md:border-b-0  md:pr-8 md:pt-8 border-solid border-dark-blue">
+          <div className="text-xl  font-black flex  justify-center md:justify-end md:justify-self-end  py-3  border-b-[1px] text-center md:col-span-2 bg-none md:border-r-[1px] md:border-b-0  md:pr-8 md:pt-8 border-solid border-dark-blue">
             Pictures
           </div>
-          <div className="flex w-screen">
+          <div className="flex">
             {photos.map((photo, index) => {
               return (
                 <img

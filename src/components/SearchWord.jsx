@@ -50,7 +50,7 @@ function SearchWord() {
       fetchData();
       fetchPhoto();
     }, 100); // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [searchWord]);
 
   return (
     <>
@@ -75,7 +75,7 @@ function SearchWord() {
               </div>
             );
           })}
-          {photos && <Photos photos={photos} word={searchWord} />}
+          {photos && <Photos word={searchWord} />}
         </div>
       )}
       {isLoading && <Loading />}
