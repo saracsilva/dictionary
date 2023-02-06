@@ -56,7 +56,7 @@ function SearchWord() {
     <>
       {!isLoading && (
         <div className=" flex flex-col  items-center h-full ">
-          <div className="flex flex-col md:flex-row gap-6  md:gap-36 items-center">
+          <div className="flex flex-col  md:flex-row gap-6  md:gap-36 items-center">
             <Title title={data.word} />
             <div>
               {data.phonetics.map((phonetic, index) => {
@@ -70,7 +70,7 @@ function SearchWord() {
           </div>
           {data.meanings.map((meaning, index) => {
             return (
-              <div className="h-full" key={index}>
+              <div className=" py-6" key={index}>
                 <Info data={meaning} />
               </div>
             );

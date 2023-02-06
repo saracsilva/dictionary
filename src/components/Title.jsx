@@ -5,7 +5,7 @@ function Title({ title, audio, text }) {
   return (
     <div className="flex">
       {title.length > 10 && (
-        <div className="text-6xl font-black sm:text-6xl  md:text-7xl md: col-span-2">
+        <div className="text-4xl font-black sm:text-6xl  md:text-7xl md: col-span-2">
           {title}
         </div>
       )}
