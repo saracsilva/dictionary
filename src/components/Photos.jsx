@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "./Loading";
-/* import { motion } from "framer-motion"; */
+/* import { AnimatePresence, motion } from "framer-motion"; */
 import { useParams } from "react-router-dom";
 const pexelsApiKey = process.env.REACT_APP_API_KEY;
 
@@ -9,6 +9,7 @@ function Photos() {
   const [isLoading, setIsloading] = useState(true);
   const [photos, setPhotos] = useState(null);
   const { searchWord } = useParams();
+
   console.log(searchWord);
   useEffect(() => {
     const fetchPhoto = async () => {
@@ -22,6 +23,7 @@ function Photos() {
         );
         const value = await response;
         setPhotos(value.data.photos);
+        console.log(value);
         setIsloading(false);
       } catch (error) {
         console.log(error);
@@ -44,21 +46,18 @@ function Photos() {
           <div className="flex flex-col md:flex-row md:col-span-3 object-cover h-full ">
             {photos.map((photo, index) => {
               return (
-                /*  <motion.div
-                  whileHover={{ scaleX: 1.2 }}
-                  style={{ originX: 0, scale: 1 }}
-                  key={index}
-                  className="w-full md:w-36 h-40 md:h-full  md:grid-flow-row object-scale-down "
-                > */
-                <div className="w-full md:w-36 h-40 md:h-full  md:grid-flow-row object-scale-down ">
-                  <img
-                    src={photo.src.original}
-                    alt={searchWord}
-                    className="object-cover hover:object-cover h-[500px]"
-                  />
+                <div
+                  key={photo.id}
+                  className=" w-full md:w-36   md:grid-flow-row object-scale-down  "
+                >
+                  <a href={photo.src.original} target="_blank" rel="noreferrer">
+                    <img
+                      src={photo.src.original}
+                      alt={searchWord}
+                      className="object-cover  h-40 md:h-[500px]  "
+                    />
+                  </a>
                 </div>
-
-                /*  </motion.div> */
               );
             })}
           </div>
