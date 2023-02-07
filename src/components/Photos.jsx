@@ -48,13 +48,13 @@ function Photos() {
               return (
                 <div
                   key={photo.id}
-                  className=" w-full md:w-36   md:grid-flow-row object-scale-down  "
+                  className="   md:grid-flow-row object-scale-down  "
                 >
                   <a href={photo.src.original} target="_blank" rel="noreferrer">
                     <img
                       src={photo.src.original}
                       alt={searchWord}
-                      className="object-cover  h-40 md:h-[500px]  "
+                      className="object-cover  w-full md:w-36  h-40 md:h-[500px]  "
                     />
                   </a>
                 </div>
